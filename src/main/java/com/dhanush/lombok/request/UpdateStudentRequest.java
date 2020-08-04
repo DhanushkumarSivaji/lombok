@@ -1,14 +1,16 @@
 package com.dhanush.lombok.request;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
-public class CreateStudentRequest {
+@Getter
+public class UpdateStudentRequest {
 	
-	@NotBlank(message="First Name is required")
+	@NotNull(message="Student ID is required")
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
