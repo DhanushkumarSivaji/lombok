@@ -3,20 +3,25 @@ package com.dhanush.lombok.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.dhanush.lombok.request.CreateStudentRequest;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "students")
 public class Students {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 	
@@ -28,4 +33,11 @@ public class Students {
 	
 	@Column(name = "email")
 	private String email;
+	
+	public Students (CreateStudentRequest createStudentRequest) {
+		this.firstName = createStudentRequest.getFirstName();
+		this.lastName = createStudentRequest.getLastName();
+		this.email = createStudentRequest.getEmail();
+
+	}
 }

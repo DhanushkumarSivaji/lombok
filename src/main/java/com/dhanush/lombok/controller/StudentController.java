@@ -5,10 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dhanush.lombok.entity.Students;
+import com.dhanush.lombok.request.CreateStudentRequest;
 import com.dhanush.lombok.response.StudentResponse;
 import com.dhanush.lombok.service.StudentService;
 
@@ -19,7 +22,7 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
-	@GetMapping("/getAll")
+	@GetMapping("getAll")
 	public List<StudentResponse> getAllStudents () {
 		List<Students> studentList = studentService.getAllStudents();
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
@@ -29,5 +32,11 @@ public class StudentController {
 		});
 		
 		return studentResponseList;
+	}
+	
+	@PostMapping("create")
+	public StudentResponse createStudent (@RequestBody CreateStudentRequest createStudentRequest) {
+		Students student = studentService.createStudent(createStudentRequest);
+		return new StudentResponse(student);
 	}
 }
