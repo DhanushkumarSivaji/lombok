@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dhanush.lombok.entity.Students;
 import com.dhanush.lombok.request.CreateStudentRequest;
+import com.dhanush.lombok.request.InQueryRequest;
 import com.dhanush.lombok.request.UpdateStudentRequest;
 import com.dhanush.lombok.response.StudentResponse;
 import com.dhanush.lombok.service.StudentService;
@@ -27,10 +28,106 @@ public class StudentController {
 
 	@Autowired
 	StudentService studentService;
-	
+
 	@GetMapping("getAll")
-	public List<StudentResponse> getAllStudents () {
+	public List<StudentResponse> getAllStudents() {
 		List<Students> studentList = studentService.getAllStudents();
+		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
+
+		studentList.stream().forEach(student -> {
+			studentResponseList.add(new StudentResponse(student));
+		});
+
+		return studentResponseList;
+	}
+
+	@PostMapping("create")
+	public StudentResponse createStudent(@Validated @RequestBody CreateStudentRequest createStudentRequest) {
+		Students student = studentService.createStudent(createStudentRequest);
+		return new StudentResponse(student);
+	}
+
+	@PutMapping("update")
+	public StudentResponse updateStudent(@Validated @RequestBody UpdateStudentRequest updateStudentRequest) {
+		Students student = studentService.updateStudent(updateStudentRequest);
+
+		return new StudentResponse(student);
+	}
+
+//	@DeleteMapping("delete")
+//	public String deleteStudent (@RequestParam("id") long id) {
+//		return studentService.deleteStudent(id);
+//	}
+
+	@DeleteMapping("delete/{id}")
+	public String deleteStudent(@PathVariable long id) {
+		return studentService.deleteStudent(id);
+	}
+
+	@GetMapping("getByFirstName/{firstName}")
+	public List<StudentResponse> getByFirstName(@PathVariable String firstName) {
+		List<Students> studentList = studentService.getByFirstName(firstName);
+
+		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
+
+		studentList.stream().forEach(student -> {
+			studentResponseList.add(new StudentResponse(student));
+		});
+
+		return studentResponseList;
+
+	}
+
+	@GetMapping("getByFirstNameAndLastName/{firstName}/{lastName}")
+	public StudentResponse getByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName) {
+		return new StudentResponse(studentService.getByFirstNameAndLastName(firstName, lastName));
+	}
+
+	@GetMapping("getByFirstNameOrLastName/{firstName}/{lastName}")
+	public List<StudentResponse> getByFirstNameOrLastName(@PathVariable String firstName,
+			@PathVariable String lastName) {
+		List<Students> studentList = studentService.getByFirstNameOrLastName(firstName, lastName);
+
+		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
+
+		studentList.stream().forEach(student -> {
+			studentResponseList.add(new StudentResponse(student));
+		});
+
+		return studentResponseList;
+	}
+	
+	@GetMapping("getByFirstNameIn")
+	public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
+		List<Students> studentList = studentService.getByFirstNameIn(inQueryRequest);
+
+		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
+
+		studentList.stream().forEach(student -> {
+			studentResponseList.add(new StudentResponse(student));
+		});
+
+		return studentResponseList;
+	}
+	
+	@GetMapping("getAllWithPagination")
+	public List<StudentResponse> getAllStudentsWithPagination(@RequestParam int pageNo,@RequestParam int pageSize) {
+		List<Students> studentList = studentService.getAllStudentsWithPagination(pageNo,pageSize);
+
+		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
+
+		studentList.stream().forEach(student -> {
+			studentResponseList.add(new StudentResponse(student));
+		});
+
+		return studentResponseList;
+	}
+	
+	@GetMapping("getAllWithSorting")
+	public List<StudentResponse> getAllStudentsWithSorting () {
+		
+		List<Students> studentList = studentService.getAllStudentsWithSorting();
+		
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
 		
 		studentList.stream().forEach(student -> {
@@ -38,28 +135,5 @@ public class StudentController {
 		});
 		
 		return studentResponseList;
-	}
-	
-	@PostMapping("create")
-	public StudentResponse createStudent (@Validated @RequestBody CreateStudentRequest createStudentRequest) {
-		Students student = studentService.createStudent(createStudentRequest);
-		return new StudentResponse(student);
-	}
-	
-	@PutMapping("update")
-	public StudentResponse updateStudent (@Validated @RequestBody UpdateStudentRequest updateStudentRequest) {
-		Students student = studentService.updateStudent(updateStudentRequest);
-		
-		return new StudentResponse(student);
-	}
-	
-//	@DeleteMapping("delete")
-//	public String deleteStudent (@RequestParam("id") long id) {
-//		return studentService.deleteStudent(id);
-//	}
-	
-	@DeleteMapping("delete/{id}")
-	public String deleteStudent (@PathVariable long id) {
-		return studentService.deleteStudent(id);
 	}
 }
