@@ -58,8 +58,9 @@ public class StudentService {
 	}
 	
 	public Students getByFirstNameAndLastName(String firstName,String lastName){
-		return studentRepository.findByFirstNameAndLastName(firstName, lastName);
-	}
+//		return studentRepository.findByFirstNameAndLastName(firstName, lastName);
+		return studentRepository.getByFirstNameAndLastName(firstName, lastName);
+	};
 	
 	public List<Students> getByFirstNameOrLastName(String firstName,String lastName){
 		return studentRepository.findByFirstNameOrLastName(firstName, lastName);
@@ -76,5 +77,13 @@ public class StudentService {
 		Sort sort = Sort.by(Sort.Direction.ASC, "firstName", "lastName", "email");
 		
 		return studentRepository.findAll(sort);
+	}
+	
+	public Integer updateStudentWithJpql (Long id, String firstName) {
+		return studentRepository.updateFirstName(id, firstName);
+	}
+	
+	public Integer deleteStudent (String firstName) {
+		return studentRepository.deleteByFirstName(firstName);
 	}
 }

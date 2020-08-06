@@ -96,7 +96,7 @@ public class StudentController {
 
 		return studentResponseList;
 	}
-	
+
 	@GetMapping("getByFirstNameIn")
 	public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
 		List<Students> studentList = studentService.getByFirstNameIn(inQueryRequest);
@@ -109,10 +109,10 @@ public class StudentController {
 
 		return studentResponseList;
 	}
-	
+
 	@GetMapping("getAllWithPagination")
-	public List<StudentResponse> getAllStudentsWithPagination(@RequestParam int pageNo,@RequestParam int pageSize) {
-		List<Students> studentList = studentService.getAllStudentsWithPagination(pageNo,pageSize);
+	public List<StudentResponse> getAllStudentsWithPagination(@RequestParam int pageNo, @RequestParam int pageSize) {
+		List<Students> studentList = studentService.getAllStudentsWithPagination(pageNo, pageSize);
 
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
 
@@ -122,18 +122,28 @@ public class StudentController {
 
 		return studentResponseList;
 	}
-	
+
 	@GetMapping("getAllWithSorting")
-	public List<StudentResponse> getAllStudentsWithSorting () {
-		
+	public List<StudentResponse> getAllStudentsWithSorting() {
+
 		List<Students> studentList = studentService.getAllStudentsWithSorting();
-		
+
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
-		
+
 		studentList.stream().forEach(student -> {
 			studentResponseList.add(new StudentResponse(student));
 		});
-		
+
 		return studentResponseList;
+	}
+
+	@PutMapping("updateFirstName/{id}/{firstName}")
+	public String updateStudentWithJpql(@PathVariable Long id, @PathVariable String firstName) {
+		return studentService.updateStudentWithJpql(id, firstName) + " Student(s) updated";
+	}
+
+	@DeleteMapping("deleteByFirstName/{firstName}")
+	public String deleteStudent(@PathVariable String firstName) {
+		return studentService.deleteStudent(firstName) + " Student(s) deleted";
 	}
 }
