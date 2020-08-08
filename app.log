@@ -287,3 +287,30 @@ java.lang.IllegalArgumentException: Value must not be null!
 2020-08-08 20:05:04.211  INFO 9157 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
 2020-08-08 20:05:04.493  INFO 9157 --- [http-nio-8081-exec-2] c.d.lombok.controller.StudentController  : inQueryRequest = InQueryRequest(firstNames=[Dhanush, Sachin])
 2020-08-08 20:05:05.022  INFO 9157 --- [http-nio-8081-exec-2] c.d.lombok.controller.StudentController  : studentResponseList = [StudentResponse(id=2, firstName=Sachin, lastName=SenthilRaj, email=sachin@gmail.com, street=KMG nagar, city=Karaikal, learningSubjects=[])]
+2020-08-08 20:49:10.678  WARN 9157 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=41m16s672ms).
+2020-08-08 20:52:21.936  INFO 9490 --- [main] com.dhanush.lombok.LombokApplication     : Starting LombokApplication on Dhanush.local with PID 9490 (/Users/macbookpro/Desktop/Study/SpringFramework/lombok/target/classes started by Dhanush in /Users/macbookpro/Desktop/Study/SpringFramework/lombok)
+2020-08-08 20:52:21.941  INFO 9490 --- [main] com.dhanush.lombok.LombokApplication     : No active profile set, falling back to default profiles: default
+2020-08-08 20:52:22.956  INFO 9490 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-08 20:52:23.058  INFO 9490 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86ms. Found 3 JPA repository interfaces.
+2020-08-08 20:52:24.155  INFO 9490 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-08-08 20:52:24.167  INFO 9490 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-08 20:52:24.167  INFO 9490 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-08 20:52:24.292  INFO 9490 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-08 20:52:24.293  INFO 9490 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2240 ms
+2020-08-08 20:52:24.512  INFO 9490 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-08 20:52:25.048  INFO 9490 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-08 20:52:25.119  INFO 9490 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-08 20:52:25.244  INFO 9490 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-08 20:52:25.457  INFO 9490 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-08 20:52:25.639  INFO 9490 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-08-08 20:52:26.560  INFO 9490 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-08 20:52:26.576  INFO 9490 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-08 20:52:27.577  WARN 9490 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-08 20:52:27.786  INFO 9490 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-08-08 20:52:28.131  INFO 9490 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-08 20:52:28.725  INFO 9490 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-08-08 20:52:28.726  INFO 9490 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-08-08 20:52:28.753  INFO 9490 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-08-08 20:52:28.807  INFO 9490 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-08-08 20:52:29.031  INFO 9490 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteStudentUsingDELETE_1
+2020-08-08 20:52:29.086  INFO 9490 --- [main] com.dhanush.lombok.LombokApplication     : Started LombokApplication in 7.7 seconds (JVM running for 8.741)

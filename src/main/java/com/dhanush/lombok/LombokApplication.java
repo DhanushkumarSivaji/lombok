@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 //@ComponentScan("com.dhanush.lombok.*")
-@ComponentScan({"com.dhanush.lombok.controller","com.dhanush.lombok.service"})
+@ComponentScan({"com.dhanush.lombok.controller","com.dhanush.lombok.service","com.dhanush.lombok.aop"})
 @EntityScan("com.dhanush.lombok.entity")
 @EnableJpaRepositories("com.dhanush.lombok.repository")
 @EnableSwagger2
