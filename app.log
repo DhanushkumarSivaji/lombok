@@ -1,0 +1,32 @@
+2020-08-08 16:03:03.036  INFO 5502 --- [main] com.dhanush.lombok.LombokApplication     : Starting LombokApplication on Dhanush.local with PID 5502 (/Users/macbookpro/Desktop/Study/SpringFramework/lombok/target/classes started by Dhanush in /Users/macbookpro/Desktop/Study/SpringFramework/lombok)
+2020-08-08 16:03:03.040  INFO 5502 --- [main] com.dhanush.lombok.LombokApplication     : No active profile set, falling back to default profiles: default
+2020-08-08 16:03:03.960  INFO 5502 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-08 16:03:04.045  INFO 5502 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 3 JPA repository interfaces.
+2020-08-08 16:03:04.852  INFO 5502 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-08-08 16:03:04.865  INFO 5502 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-08 16:03:04.865  INFO 5502 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-08 16:03:04.984  INFO 5502 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-08 16:03:04.984  INFO 5502 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1847 ms
+2020-08-08 16:03:05.195  INFO 5502 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-08 16:03:05.899  INFO 5502 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-08 16:03:05.961  INFO 5502 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-08 16:03:06.043  INFO 5502 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-08 16:03:06.293  INFO 5502 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-08 16:03:06.459  INFO 5502 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-08-08 16:03:07.404  INFO 5502 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-08 16:03:07.416  INFO 5502 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-08 16:03:08.223  WARN 5502 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-08 16:03:08.391  INFO 5502 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-08-08 16:03:08.542  INFO 5502 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-08 16:03:08.823  INFO 5502 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-08-08 16:03:08.824  INFO 5502 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-08-08 16:03:08.853  INFO 5502 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-08-08 16:03:08.896  INFO 5502 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-08-08 16:03:09.361  INFO 5502 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteStudentUsingDELETE_1
+2020-08-08 16:03:09.419  INFO 5502 --- [main] com.dhanush.lombok.LombokApplication     : Started LombokApplication in 6.904 seconds (JVM running for 8.034)
+2020-08-08 16:03:31.947  INFO 5502 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-08 16:03:31.948  INFO 5502 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-08 16:03:31.957  INFO 5502 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-08-08 16:03:31.985 ERROR 5502 --- [http-nio-8081-exec-1] c.d.lombok.controller.StudentController  : Inside Error
+2020-08-08 16:03:31.985  WARN 5502 --- [http-nio-8081-exec-1] c.d.lombok.controller.StudentController  : Inside Warning
+2020-08-08 16:03:31.985  INFO 5502 --- [http-nio-8081-exec-1] c.d.lombok.controller.StudentController  : Inside Info

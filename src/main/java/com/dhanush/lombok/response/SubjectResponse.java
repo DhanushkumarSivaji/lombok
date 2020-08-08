@@ -4,9 +4,11 @@ import com.dhanush.lombok.entity.Subject;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class SubjectResponse {
 
 	private Long id;

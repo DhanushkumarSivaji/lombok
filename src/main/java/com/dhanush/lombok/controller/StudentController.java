@@ -3,6 +3,8 @@ package com.dhanush.lombok.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,12 +27,26 @@ import com.dhanush.lombok.service.StudentService;
 @RestController
 @RequestMapping("/api/student/")
 public class StudentController {
+	
+	
+	// Error < Warn < Info < Debug < Trace
+	
+	Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 	@Autowired
 	StudentService studentService;
 
 	@GetMapping("getAll")
 	public List<StudentResponse> getAllStudents() {
+		
+		
+		logger.error("Inside Error");
+		logger.warn("Inside Warning");
+		logger.info("Inside Info");
+		logger.debug("Inside Debug");
+		logger.trace("Inside Trace");
+		
+		
 		List<Students> studentList = studentService.getAllStudents();
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
 
@@ -99,6 +115,9 @@ public class StudentController {
 
 	@GetMapping("getByFirstNameIn")
 	public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
+		
+		logger.info("inQueryRequest = " + inQueryRequest);
+		
 		List<Students> studentList = studentService.getByFirstNameIn(inQueryRequest);
 
 		List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
@@ -107,6 +126,7 @@ public class StudentController {
 			studentResponseList.add(new StudentResponse(student));
 		});
 
+		logger.info("studentResponseList = " + studentResponseList);
 		return studentResponseList;
 	}
 
