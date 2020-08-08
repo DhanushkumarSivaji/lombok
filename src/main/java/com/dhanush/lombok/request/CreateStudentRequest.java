@@ -1,5 +1,7 @@
 package com.dhanush.lombok.request;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +14,12 @@ public class CreateStudentRequest {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
+	private String street;
+	private String city;
+	
+	
+	private List<CreateSubjectRequest> subjectsLearning;
+	
 
 }
